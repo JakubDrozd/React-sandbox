@@ -1,8 +1,7 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './style/index.css';
 import reportWebVitals from './reportWebVitals';
-import { App} from "./App"
+import { App} from "./components/App"
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -10,7 +9,11 @@ const root = ReactDOM.createRoot(
 
 function interval(){
   root.render(
-    <App></App>
+    <div>
+      <App>
+      </App>
+      <h1>Test</h1>
+    </div>
   )
 }
 
