@@ -2,6 +2,7 @@ import ReactDOM from 'react-dom/client';
 import './style/index.css';
 import reportWebVitals from './reportWebVitals';
 import { App} from "./components/App"
+import { Button } from './components/Button';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -13,6 +14,7 @@ function interval(){
       <App>
       </App>
       <h1>Test</h1>
+      <Button></Button>
     </div>
   )
 }
