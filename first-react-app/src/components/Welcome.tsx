@@ -1,20 +1,8 @@
-export const user = {
-    firstName: "Jakub",
-    lastName: "Drozd"
-  }
-  
-  export function Welcome(){
-    function formatName(user: {firstName: string, lastName: string}) {
-      if(user){
-        return `${user.firstName} ${user.lastName} it is ${new Date().toLocaleTimeString("en-GB")}`
-      } 
-      return <h1>Hello, anonymous user</h1>
+export function Welcome(props: any){
+    if(!props.firstName || !props.lastName){
+      return ( <h1>Hello, anonymous</h1> )
+    } else {
+      const text = `Welcome ${props.firstName} ${props.lastName}, it is ${new Date().toLocaleTimeString("en-GB")}`
+      return (<h1>{text}</h1>)
     }
-    
-     function tick(){
-      return <h1>Hello, {formatName(user)}</h1>
-    }
-  
-    return tick()
-    
   }
