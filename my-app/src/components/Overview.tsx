@@ -1,48 +1,25 @@
 //render
-import React, { Component,  } from "react";
+import React, { Component, useRef,  } from "react";
 
-export class InputField extends Component<any, any> {
-    render(): React.ReactNode {
-        return (
-            <input type="text" />
-        )
-    }}
 
-export class Submit extends Component<any, any> {
-        render(): React.ReactNode {
-            return (
-                <input type="submit" value="Submit" />
-            )
-        }
+
+export function Overview(props: any){
+
+    function onSubmit(){
+        const task = document.querySelector("#task")
+        taskArray.push(task)
+        console.log(taskArray)
     }
 
-export class List extends Component<any, any>{
-    constructor(props:any){
-        super(props)
+    let taskArray: any[] = ["One", "Two"]
 
-        this.state = {
-            taskArray : ["One","Two","Three"]
-        }
-    }
-   
-    
-    render(): React.ReactNode {
-        return (
-            this.state.taskArray.map((task: any) => <li key={this.state.taskArray.indexOf(task)}>{task}</li>)
-        )
-    }
-}
+    const element = taskArray.map((task: any) => <li key={taskArray.indexOf(task)}>{task}</li>)
 
-export class Overview extends Component<any, any> {
-
-
-    render(): React.ReactNode {
         return(
             <div>
-                <InputField></InputField>
-                <Submit></Submit>
-                <List></List>
+                <input type="text" />
+                <input type="button" value="Submit" onClick={onSubmit } />
+                {element}
             </div>
         )
     }
-}
