@@ -7,7 +7,10 @@ export class App extends Component {
     super();
 
     this.state = {
-      task: { text: "", id: uniqid() },
+      task: {
+        text: "",
+        id: uniqid(),
+      },
       tasks: [],
     };
   }
@@ -25,7 +28,10 @@ export class App extends Component {
     e.preventDefault();
     this.setState({
       tasks: this.state.tasks.concat(this.state.task),
-      task: { text: "", id: uniqid() },
+      task: {
+        text: "",
+        id: uniqid(),
+      },
     });
   };
 
@@ -34,19 +40,18 @@ export class App extends Component {
 
     return (
       <div>
-        <form>
-          <label htmlFor="taskInput">Enter Task: </label>
+        <form onSubmit={this.onSubmitTask}>
+          <label htmlFor="taskInput">Enter task: </label>
+          <p></p>
           <input
-            type="text"
-            id="taskInput"
             onChange={this.handleChange}
             value={task.text}
+            type="text"
+            id="taskInput"
           />
-          <button type="submit" onClick={this.onSubmitTask}>
-            Add Task
-          </button>
+          <button type="submit">Add Task</button>
         </form>
-        <Overview task={tasks}></Overview>
+        <Overview tasks={tasks} />
       </div>
     );
   }
