@@ -1,18 +1,46 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 import Button from "react-bootstrap/Button"
 
 export default function App(props: any){
-  const [count, setCount] = useState(0)
+  const [color, setColor] = useState("black")
 
-  const incrementCount = () =>{
-    setCount(count + 1);
-  }
+ 
+
+  useEffect(() => {
+    const changeColorOnClick = () => {
+      if (color === "black") {
+        setColor("red");
+      } else {
+        setColor("black");
+      }
+    };
+    
+    document.addEventListener("click", changeColorOnClick);
+
+    return () => {
+      document.removeEventListener("click", changeColorOnClick);
+    };
+  }, [color]);
+
   return (
     <div>
-      <Button variant="info" onClick={incrementCount}>{count}</Button>
+      <div
+        id="myDiv"
+        style={{
+          color: "white",
+          width: "100px",
+          height: "100px",
+          position: "absolute",
+          left: "50%",
+          top: "50%",
+          backgroundColor: color,
+        }}
+      >
+        This div can change color. Click on me!
+      </div>
     </div>
-  )
-}
+  );
+};
