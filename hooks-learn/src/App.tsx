@@ -7,7 +7,6 @@ import Button from "react-bootstrap/Button"
 export default function App(props: any){
   const [color, setColor] = useState("black")
 
- 
 
   useEffect(() => {
     const changeColorOnClick = () => {
