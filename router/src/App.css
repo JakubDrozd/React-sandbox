@@ -1,0 +1,49 @@
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background: rgb(73, 79, 82);
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.nav-links {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  border: 1px solid #777;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 1rem;
+  text-align: center;
+}
+
+.card > .item-name {
+  font-weight: bold;
+}
+
+.card > .item-price {
+  text-decoration: underline;
+}
