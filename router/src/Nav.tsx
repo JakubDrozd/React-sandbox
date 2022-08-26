@@ -1,7 +1,3 @@
-import App from "./App";
-import { Profile } from "./Profile";
-import { ProfileView } from "./ProfileView";
-import { NotFound } from "./NotFound";
 import {Link} from "react-router-dom"
 
 export function Nav(){
