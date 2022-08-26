@@ -14,13 +14,18 @@ export function Shop() {
     );
     const items = await data.json();
     setItems(items.data);
+    // console.log(items.data);
   };
 
   return (
     <div className="container">
       <ul>
         {items.map((item) => {
-          return <li>{item.item.name}</li>;
+          return (
+            <Link to={`/${item.itemId}`} key={item.itemId}>
+              <li>{item.item.name}</li>
+            </Link>
+          );
         })}
       </ul>
     </div>
