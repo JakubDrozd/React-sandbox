@@ -1,9 +1,14 @@
+@font-face {
+  font-family: "fortnite";
+  src: url("./fortnite.otf");
+}
+
 .nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
-  background: rgb(73, 79, 82);
+  background: rgb(51, 67, 119);
   color: white;
   margin-bottom: 1rem;
 }
@@ -16,8 +21,20 @@
   list-style: none;
 }
 
+li {
+  transition: all 0.2 ease-in-out;
+}
+
+li:hover {
+  transform: scale(1.1);
+}
+
 body {
   margin: 0;
+  background-color: rgb(75, 98, 157);
+  color: white;
+  font-family: "fortnite";
+  font-size: 1.5rem;
 }
 
 .container {
@@ -46,4 +63,23 @@ body {
 
 .card > .item-price {
   text-decoration: underline;
+}
+
+a {
+  color: white;
+}
+
+.item-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cost {
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
