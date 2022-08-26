@@ -9,30 +9,20 @@ export function Shop() {
   const [items, setItems] = useState([]);
 
   const fetchItems = async () => {
-    const data = await fetch("https://fortnite-api.com/v2/shop/br");
-
+    const data = await fetch(
+      "https://fortnite-api.theapinetwork.com/store/get"
+    );
     const items = await data.json();
-    setItems(items.data.daily.entries);
+    setItems(items.data);
   };
 
   return (
     <div className="container">
-      {items.map((item) => (
-        <div className="card" key={item.offerId}>
-          <h3 className="item-name">Items: </h3>
-          <h3 className="item-name" key={item.id}>
-            {item.items.map((item) => (
-              <Link to={`/${item.id}`}>
-                <li key={item.name}>{item.name}</li>
-              </Link>
-            ))}
-          </h3>
-          <h4 className="item-price">Price: {item.regularPrice}</h4>
-          <div className="giftable">
-            {item.giftable ? <h4>Giftable</h4> : <h4>Not Giftable</h4>}
-          </div>
-        </div>
-      ))}
+      <ul>
+        {items.map((item) => {
+          return <li>{item.item.name}</li>;
+        })}
+      </ul>
     </div>
   );
 }
