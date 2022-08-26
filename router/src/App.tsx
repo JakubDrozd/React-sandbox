@@ -4,6 +4,7 @@ import {Shop} from "./Shop"
 import {About} from "./About"
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import "./App.css"
+import {ItemDetail} from "./ItemDetail"
 
 function App(){
   return (
@@ -14,6 +15,7 @@ function App(){
             <Route path="/" element={<Home></Home>}></Route>
             <Route path="/about" element={<About></About>}></Route>
             <Route path="/shop" element={<Shop></Shop>}></Route>
+            <Route path="/shop/:id" element={<ItemDetail></ItemDetail>}></Route>
           </Routes>
       </div>
     </BrowserRouter>
