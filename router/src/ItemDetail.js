@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-
-const coins = "./coins.png";
+import { useParams } from "react-router-dom";
 
 export function ItemDetail() {
   const params = useParams();
