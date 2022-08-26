@@ -6,22 +6,28 @@ export function ItemDetail() {
 
   useEffect(() => {
     fetchItem();
-    console.log(params.id);
   }, []);
 
-  const [item, setItem] = useState([]);
+  const [item, setItem] = useState({
+    images: {},
+  });
 
   const fetchItem = async () => {
     const fetchItem = await fetch(
       `https://fortnite-api.theapinetwork.com/item/get?id=${params.id}`
     );
     const item = await fetchItem.json();
-    console.log(item);
+    setItem(item.data.item);
+    console.log(item.data.item);
   };
 
+  console.log(item);
+
   return (
-    <div className="container">
-      <h1>Item</h1>
+    <div className="item-container">
+      <h1>{item.name}</h1>
+      <img src={item.images.icon} alt="item-icon" width="40%" h1="40%" />
+      <h2 style={{ fontStyle: "italic" }}>"{item.description}"</h2>
     </div>
   );
 }
