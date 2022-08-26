@@ -12,7 +12,6 @@ export function Shop() {
     const data = await fetch("https://fortnite-api.com/v2/shop/br");
 
     const items = await data.json();
-    console.log(items.data.daily.entries);
     setItems(items.data.daily.entries);
   };
 
@@ -23,8 +22,8 @@ export function Shop() {
           <h3 className="item-name">Items: </h3>
           <h3 className="item-name" key={item.id}>
             {item.items.map((item) => (
-              <Link to={`shop/${item.id}`}>
-                <li>{item.name}</li>
+              <Link to={`/${item.id}`}>
+                <li key={item.name}>{item.name}</li>
               </Link>
             ))}
           </h3>
