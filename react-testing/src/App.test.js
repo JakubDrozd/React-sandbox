@@ -1,11 +1,18 @@
 import App from "./App";
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 describe("App component", () => {
-  it("renders correct heading", () => {
-    const { getByRole } = render(<App />);
-    // eslint-disable-next-line testing-library/prefer-screen-queries
-    expect(getByRole("heading").textContent).toMatch(/our first test/i);
+  it("render magnificent monkeys", () => {
+    const { container } = render(<App />);
+    expect(container).toMatchSnapshot();
+  });
+
+  it("render radical rhinos after button click", () => {
+    render(<App></App>);
+    const button = screen.getByRole("button", { name: "Click me" });
+    userEvent.click(button);
+    expect(screen.getByRole("heading").textContent).toMatch(/radical rhinos/i);
   });
 });
