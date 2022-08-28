@@ -3,12 +3,13 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import ReactDOM from "react-dom/client";
+import { act } from "react-dom/test-utils";
 
-it("should increment a counter", () => {
+it("should tick after one second to new value", () => {
   render(<App></App>);
-  const button = screen.getByTestId("button");
-  for (let i = 0; i < 3; i++) {
-    userEvent.click(button);
-  }
-  expect(button.innerHTML).toBe("3");
+  const timer = screen.getByTestId("timer");
+  expect(timer.innerHTML).toBe("0");
+  setTimeout(() => {
+    expect(timer.innerHTML).toBe("1");
+  });
 });
