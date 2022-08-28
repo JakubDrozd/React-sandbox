@@ -1,18 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-  const [heading, setHeading] = useState("Magnificent Monkeys")
-
-  function handleClick(){
-    setHeading("Radical Rhinos")
-  }
-
-  return (
-    <div>
-      <button type="button" onClick={handleClick}>Click me</button>
-      <h1>{heading}</h1>
-    </div>
-  );
+  let [ctr, setCtr] = useState(0)
+  useEffect(() => {
+    setCtr(1)
+  },[])
+  return <div>{ctr}</div>
 }
 
 export default App;
