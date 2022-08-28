@@ -4,7 +4,11 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import ReactDOM from "react-dom/client";
 
-it("should render 1", () => {
+it("should increment a counter", () => {
   render(<App></App>);
-  expect(screen.queryByTestId("ctr").innerHTML).toBe("1");
+  const button = screen.getByTestId("button");
+  for (let i = 0; i < 3; i++) {
+    userEvent.click(button);
+  }
+  expect(button.innerHTML).toBe("3");
 });
