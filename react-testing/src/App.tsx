@@ -5,7 +5,7 @@ function App() {
   useEffect(() => {
     setCtr(1)
   },[])
-  return <div>{ctr}</div>
+  return <div data-testid="ctr">{ctr}</div>
 }
 
 export default App;
