@@ -29,3 +29,8 @@ Greeting.propTypes = {
     })
   ),
 };
+
+Greeting.defaultProps = {
+  name: "Anonymous",
+  repos: [{ name: "unknown", index: 0 }],
+};
