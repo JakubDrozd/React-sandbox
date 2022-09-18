@@ -1,6 +1,17 @@
 import { Greeting } from "./Greeting";
+import styled from "styled-components";
+import { useState } from "react";
 
+const Button = styled.button`
+  font-size: 1em;
+  background: ${(props) => (props.dark ? "black" : "white")};
+  color: ${(props) => (props.dark ? "white" : "black")};
+  border: 1px solid ${(props) => (props.dark ? "gray" : "black")};
+  padding: 0.25em 1em;
+`;
 function App() {
+  const [buttonTheme, setButtonTheme] = useState(false);
+
   return (
     <div>
       <Greeting
@@ -15,6 +26,9 @@ function App() {
           { name: "js-top", index: 7 },
         ]}
       ></Greeting>
+      <Button dark={buttonTheme} onClick={() => setButtonTheme(!buttonTheme)}>
+        Click me!
+      </Button>
     </div>
   );
 }
