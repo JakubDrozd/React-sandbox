@@ -1,6 +1,7 @@
 import { Greeting } from "./Greeting";
 import styled from "styled-components";
 import { useState } from "react";
+import { Counter } from "./Counter";
 
 const Button = styled.button`
   font-size: 1em;
@@ -29,6 +30,7 @@ function App() {
       <Button dark={buttonTheme} onClick={() => setButtonTheme(!buttonTheme)}>
         Click me!
       </Button>
+      <Counter></Counter>
     </div>
   );
 }
