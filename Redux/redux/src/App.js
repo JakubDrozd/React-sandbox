@@ -5,10 +5,13 @@ import Heading from "./Heading";
 import { Link, BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import About from "./About";
 import Home from "./Home";
+import { UserContext } from "./UserContext";
+import { useState } from "react";
 
 function App() {
   const { count } = useSelector((state) => state.counter);
   const dispatch = useDispatch();
+  const [value, setValue] = useState("hello from context");
   return (
     <Router>
       <div>
@@ -46,10 +49,12 @@ function App() {
           </Section>
         </Section>
       </div>
-      <Routes>
-        <Route path="/home" element={<Home></Home>}></Route>
-        <Route path="/about" element={<About></About>}></Route>
-      </Routes>
+      <UserContext.Provider value={{ value, setValue }}>
+        <Routes>
+          <Route path="/home" element={<Home></Home>}></Route>
+          <Route path="/about" element={<About></About>}></Route>
+        </Routes>
+      </UserContext.Provider>
     </Router>
   );
 }
