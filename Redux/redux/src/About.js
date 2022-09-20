@@ -1,3 +1,12 @@
+import { useContext } from "react";
+import { UserContext } from "./UserContext";
 export default function About() {
-  return <h1>About</h1>;
+  const { value, setValue } = useContext(UserContext);
+  return (
+    <div>
+      <h1>About</h1>
+      {value} (About)
+      <button onClick={() => setValue("Hey! (About)")}>Change value</button>
+    </div>
+  );
 }
