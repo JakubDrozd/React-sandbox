@@ -6,7 +6,7 @@ export default function About() {
     <div>
       <h1>About</h1>
       {value} (About)
-      <button onClick={() => setValue("Hey! (About)")}>Change value</button>
+      <button onClick={() => setValue("Hey!")}>Change value</button>
     </div>
   );
 }
