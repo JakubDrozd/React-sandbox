@@ -11,7 +11,7 @@ import { useState } from "react";
 function App() {
   const { count } = useSelector((state) => state.counter);
   const dispatch = useDispatch();
-  const [value, setValue] = useState("hello from context");
+  const [value, setValue] = useState("Base");
   return (
     <Router>
       <div>
