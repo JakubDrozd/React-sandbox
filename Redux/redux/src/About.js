@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "./UserContext";
+//About
 export default function About() {
   const { value, setValue } = useContext(UserContext);
   return (
