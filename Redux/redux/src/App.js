@@ -7,7 +7,7 @@ import About from "./About";
 import Home from "./Home";
 import { UserContext } from "./UserContext";
 import { useState } from "react";
-
+//App component
 function App() {
   const { count } = useSelector((state) => state.counter);
   const dispatch = useDispatch();
