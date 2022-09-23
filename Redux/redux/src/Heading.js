@@ -1,4 +1,4 @@
-//Heading
+//Heading component
 
 import { useContext } from "react";
 import { LevelContext } from "./LevelContext";
