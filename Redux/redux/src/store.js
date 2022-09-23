@@ -1,4 +1,4 @@
-//Store
+//Store component
 
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "./counter";
