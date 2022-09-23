@@ -1,4 +1,4 @@
-//UserContext
+//UserContext component
 
 import { createContext } from "react";
 
