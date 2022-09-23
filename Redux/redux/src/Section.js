@@ -1,4 +1,4 @@
-//Section
+//Section component
 
 import { useContext } from "react";
 import { LevelContext } from "./LevelContext";
