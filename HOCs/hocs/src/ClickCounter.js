@@ -1,13 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-
-const Base = styled.div`
-  font-size: 1em;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-`;
+import { Base } from "./StyledLib";
+import UpdatedComponent from "./withCounter";
 
 const Button = styled.button`
   font-size: 2em;
@@ -24,13 +18,16 @@ const Button = styled.button`
 
 export class ClickCounter extends Component {
   render() {
+    const { count, incrementCount } = this.props;
     return (
       <Base>
         {" "}
-        <Button>Clicked X times</Button>
+        <Button onClick={incrementCount}>
+          {this.props.name} Clicked {count} times
+        </Button>
       </Base>
     );
   }
 }
 
-export default ClickCounter;
+export default UpdatedComponent(ClickCounter);
