@@ -1,8 +1,11 @@
-import logo from "./logo.svg";
-import "./App.css";
+import ClickCounter from "./ClickCounter";
 
 function App() {
-  return <div></div>;
+  return (
+    <div>
+      <ClickCounter></ClickCounter>
+    </div>
+  );
 }
 
 export default App;
