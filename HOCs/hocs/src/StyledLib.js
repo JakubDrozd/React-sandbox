@@ -7,3 +7,8 @@ export const Base = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
+export const Heading = styled.h1`
+  color: violet;
+  font-style: italic;
+`;
