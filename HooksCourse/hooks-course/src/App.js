@@ -20,6 +20,8 @@ function App() {
 
   const inputRef = useRef(null);
 
+  const buttonRef = useRef(null);
+
   const onClick = () => {
     inputRef.current.value = "";
   };
@@ -52,8 +54,14 @@ function App() {
       <input type="text" value="PEDRO" placeholder="Ex..." ref={inputRef} />
       <button onClick={onClick}>Change Name</button>
       <br />
-      <button>Button from parent</button>
-      <Button></Button>
+      <button
+        onClick={() => {
+          buttonRef.current.alterToggle();
+        }}
+      >
+        Button from parent
+      </button>
+      <Button ref={buttonRef}></Button>
     </Base>
   );
 }
