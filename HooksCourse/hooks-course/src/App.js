@@ -7,6 +7,7 @@ import {
 } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import Button from "./Button";
 
 //App component
 const Base = styled.div`
@@ -50,6 +51,9 @@ function App() {
       <h1>Pedro</h1>
       <input type="text" value="PEDRO" placeholder="Ex..." ref={inputRef} />
       <button onClick={onClick}>Change Name</button>
+      <br />
+      <button>Button from parent</button>
+      <Button></Button>
     </Base>
   );
 }
