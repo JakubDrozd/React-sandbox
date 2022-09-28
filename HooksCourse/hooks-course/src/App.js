@@ -5,6 +5,7 @@ import {
   useRef,
   useLayoutEffect,
   createContext,
+  useMemo,
 } from "react";
 import styled from "styled-components";
 import axios from "axios";
@@ -40,10 +41,32 @@ function App() {
     axios
       .get("https://jsonplaceholder.typicode.com/comments")
       .then((response) => {
-        setData(response.data[0].email);
+        setData(response.data);
       });
-    inputRef.current.value = "HELLO";
   }, []);
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
+  const findLongestName = (comments) => {
+    if (!comments) {
+      return null;
+    }
+    let longestName = "";
+    for (let i = 0; i < comments.length; i++) {
+      let currentName = comments[i].name;
+      if (currentName.length > longestName.length) {
+        longestName = currentName;
+      }
+    }
+    console.log("Algorithm computed");
+    return longestName;
+  };
+
+  const getLongestName = useMemo(() => {
+    findLongestName(data);
+  }, [data]);
 
   return (
     <Base>
@@ -55,7 +78,6 @@ function App() {
       >
         Click Here
       </button>
-      {<p>{data}</p>}
       <h1>Pedro</h1>
       <input type="text" value="PEDRO" placeholder="Ex..." ref={inputRef} />
       <button onClick={onClick}>Change Name</button>
@@ -71,6 +93,7 @@ function App() {
       <AppContext.Provider value={{ username, setUsername }}>
         <Login></Login> <User></User>
       </AppContext.Provider>
+      <div>{getLongestName}</div>
     </Base>
   );
 }
