@@ -8,6 +8,8 @@ import {
 import styled from "styled-components";
 import axios from "axios";
 import Button from "./Button";
+import User from "./User";
+import Login from "./Login";
 
 //App component
 const Base = styled.div`
@@ -17,6 +19,7 @@ const Base = styled.div`
 function App() {
   const [data, setData] = useState("");
   const [count, setCount] = useState(0);
+  const [username, setUsername] = useState("");
 
   const inputRef = useRef(null);
 
@@ -62,6 +65,8 @@ function App() {
         Button from parent
       </button>
       <Button ref={buttonRef}></Button>
+      <Login setUsername={setUsername}></Login>{" "}
+      <User username={username}></User>
     </Base>
   );
 }
