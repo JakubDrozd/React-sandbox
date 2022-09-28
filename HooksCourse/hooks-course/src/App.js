@@ -4,6 +4,7 @@ import {
   useEffect,
   useRef,
   useLayoutEffect,
+  createContext,
 } from "react";
 import styled from "styled-components";
 import axios from "axios";
@@ -15,6 +16,8 @@ import Login from "./Login";
 const Base = styled.div`
   text-align: center;
 `;
+
+export const AppContext = createContext(null);
 
 function App() {
   const [data, setData] = useState("");
@@ -65,8 +68,9 @@ function App() {
         Button from parent
       </button>
       <Button ref={buttonRef}></Button>
-      <Login setUsername={setUsername}></Login>{" "}
-      <User username={username}></User>
+      <AppContext.Provider value={{ username, setUsername }}>
+        <Login></Login> <User></User>
+      </AppContext.Provider>
     </Base>
   );
 }
