@@ -1,4 +1,10 @@
-import { useState, useReducer, useEffect, useRef } from "react";
+import {
+  useState,
+  useReducer,
+  useEffect,
+  useRef,
+  useLayoutEffect,
+} from "react";
 import styled from "styled-components";
 import axios from "axios";
 
@@ -17,13 +23,17 @@ function App() {
     inputRef.current.value = "";
   };
 
+  useLayoutEffect(() => {
+    console.log(inputRef.current.value);
+  }, []);
+
   useEffect(() => {
     axios
       .get("https://jsonplaceholder.typicode.com/comments")
       .then((response) => {
         setData(response.data[0].email);
-        console.log("API WAS CALLED");
       });
+    inputRef.current.value = "HELLO";
   }, []);
 
   return (
@@ -38,7 +48,7 @@ function App() {
       </button>
       {<p>{data}</p>}
       <h1>Pedro</h1>
-      <input type="text" placeholder="Ex..." ref={inputRef} />
+      <input type="text" value="PEDRO" placeholder="Ex..." ref={inputRef} />
       <button onClick={onClick}>Change Name</button>
     </Base>
   );
