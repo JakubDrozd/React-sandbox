@@ -14,7 +14,7 @@ function App() {
   const inputRef = useRef(null);
 
   const onClick = () => {
-    inputRef.current.focus();
+    inputRef.current.value = "";
   };
 
   useEffect(() => {
