@@ -1,4 +1,4 @@
-import { useState, useReducer, useEffect } from "react";
+import { useState, useReducer, useEffect, useRef } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
@@ -10,6 +10,12 @@ const Base = styled.div`
 function App() {
   const [data, setData] = useState("");
   const [count, setCount] = useState(0);
+
+  const inputRef = useRef(null);
+
+  const onClick = () => {
+    inputRef.current.focus();
+  };
 
   useEffect(() => {
     axios
@@ -31,6 +37,9 @@ function App() {
         Click Here
       </button>
       {<p>{data}</p>}
+      <h1>Pedro</h1>
+      <input type="text" placeholder="Ex..." ref={inputRef} />
+      <button onClick={onClick}>Change Name</button>
     </Base>
   );
 }
