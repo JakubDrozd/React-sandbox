@@ -1,4 +1,8 @@
-const User = ({ username }) => {
+import { useContext } from "react";
+import { AppContext } from "./App";
+
+const User = () => {
+  const { username } = useContext(AppContext);
   return (
     <div>
       <h1>User: {username}</h1>
